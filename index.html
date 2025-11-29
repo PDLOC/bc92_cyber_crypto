@@ -1,622 +1,357 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cyber Crypto</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link
-      href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css"
-      rel="stylesheet"
-    />
 
-    <link rel="stylesheet" href="./styles/index.css" />
-  </head>
-  <body>
-    <!-- Header -->
-    <header>
-      <nav
-        class="bg-neutral-primary fixed w-full z-20 top-0 start-0 border-default"
-      >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cyber Crypto</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./styles/index.css" />
+
+  <style type="text/tailwindcss"> @theme {    --font-sans: 'Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'system-ui', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';    --font-body: 'Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'system-ui', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';    --font-mono: 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace';
+    /* TEXT VARIABLES */    --text-2xs: 0.625rem;    --spacing-8xl: 90rem;    --leading-9: 36px; /* rem pls */    --leading-7: 28px;    --leading-8: 32px;    --leading-6: 24px;    --leading-4: 16px;    --leading-none: 1px;    --leading-5: 20px;    --tracking-tighter: -0.8px;    --leading-heading-none: 60px;    --tracking-tight: -0.4px;
+    /* BORDER RADIUS VARIABLES */    --radius-0: 0px;    --radius-xxs: 2px;    --radius-xs: 4px;    --radius-sm: 6px;    --radius: 8px;    --radius-base: 12px;     --radius-lg: 16px;
+    /* BORDER WIDTH VARIABLES */    --default-border-width: 1px;
+    /* TEXT COLORS VARIABLES */    /* main text color */    --color-body: var(--color-gray-600);    --color-body-subtle: var(--color-gray-500);
+    /* text heading colors */    --color-heading: var(--color-gray-900);
+    /* used for custom brand colors */    --color-fg-brand-subtle: var(--color-blue-200);    --color-fg-brand: var(--color-blue-700);    --color-fg-brand-strong: var(--color-blue-900);
+    /* used for status colors */    --color-fg-success: var(--color-emerald-700);    --color-fg-success-strong: var(--color-emerald-900);    --color-fg-danger: var(--color-rose-700);    --color-fg-danger-strong: var(--color-rose-900);    --color-fg-warning-subtle: var(--color-orange-600);    --color-fg-warning: var(--color-orange-900);    --color-fg-yellow: var(--color-yellow-400);    --color-fg-disabled: var(--color-gray-400);    --color-fg-purple: var(--color-purple-600);    --color-fg-cyan: var(--color-cyan-600);    --color-fg-indigo: var(--color-indigo-600);    --color-fg-pink: var(--color-pink-600);    --color-fg-lime: var(--color-lime-600);
+    /* BACKGROUND COLOR VARIABLES */    /* used for neutral colors */    --color-neutral-primary-soft: var(--color-white);    --color-neutral-primary: var(--color-white);    --color-neutral-primary-medium: var(--color-white);    --color-neutral-primary-strong: var(--color-white);    --color-neutral-secondary-soft: var(--color-gray-50);    --color-neutral-secondary: var(--color-gray-50);    --color-neutral-secondary-medium: var(--color-gray-50);    --color-neutral-secondary-strong: var(--color-gray-50);    --color-neutral-secondary-strongest: var(--color-gray-50);    --color-neutral-tertiary-soft: var(--color-gray-100);    --color-neutral-tertiary: var(--color-gray-100);    --color-neutral-tertiary-medium: var(--color-gray-100);    --color-neutral-quaternary: var(--color-gray-200);    --color-neutral-quaternary-medium: var(--color-gray-200);    --color-gray: var(--color-gray-300);
+    /* used for brand colors */    --color-brand-softer: var(--color-blue-50);    --color-brand-soft: var(--color-blue-100);    --color-brand: var(--color-blue-700);    --color-brand-medium: var(--color-blue-200);    --color-brand-strong: var(--color-blue-800);
+    /* used for status colors */    --color-success-soft: var(--color-emerald-50);    --color-success: var(--color-emerald-700);    --color-success-medium: var(--color-emerald-100);    --color-success-strong: var(--color-emerald-800);    --color-danger-soft: var(--color-rose-50);    --color-danger: var(--color-rose-700);    --color-danger-medium: var(--color-rose-100);    --color-danger-strong: var(--color-rose-800);    --color-warning-soft: var(--color-orange-50);    --color-warning: var(--color-orange-500);    --color-warning-medium: var(--color-orange-100);    --color-warning-strong: var(--color-orange-700);    --color-dark-soft: var(--color-gray-800);    --color-dark: var(--color-gray-800);    --color-dark-strong: var(--color-gray-900);    --color-disabled: var(--color-gray-100);    --color-purple: var(--color-purple-500);    --color-sky: var(--color-sky-500);    --color-teal: var(--color-teal-600);    --color-pink: var(--color-pink-600);    --color-cyan: var(--color-cyan-500);    --color-fuchsia: var(--color-fuchsia-600);    --color-indigo: var(--color-indigo-600);    --color-orange: var(--color-orange-400);
+    /* BORDER COLOR VARIABLES */    --color-buffer: var(--color-white);    --color-buffer-medium: var(--color-white);    --color-buffer-strong: var(--color-white);    --color-muted: var(--color-gray-50);    --color-light-subtle: var(--color-gray-100);    --color-light: var(--color-gray-100);    --color-light-medium: var(--color-gray-100);    --color-default-subtle: var(--color-gray-200);    --color-default: var(--color-gray-200);    --color-default-medium: var(--color-gray-200);    --color-default-strong: var(--color-gray-200);
+    /* used for status colors */    --color-success-subtle: var(--color-emerald-200);    --color-danger-subtle: var(--color-rose-200);    --color-warning-subtle: var(--color-orange-200);    --color-brand-subtle: var(--color-blue-200);    --color-brand-light: var(--color-blue-600);    --color-dark-subtle: var(--color-gray-800);    --color-dark-backdrop: var(--color-gray-950);
+    /* shiki variables */    --color-shiki-fg-brand: #79b8ff;    --color-shiki-fg-brand-subtle: #9ecbff;}
+.dark {  /* text color variables */  --color-body: var(--color-gray-400);  --color-body-subtle: var(--color-gray-400);  --color-heading: var(--color-white);  --color-fg-brand-subtle: var(--color-blue-200);  --color-fg-brand: var(--color-blue-500);  --color-fg-brand-strong: var(--color-blue-400);  --color-fg-success: var(--color-emerald-600);  --color-fg-success-strong: var(--color-emerald-300);  --color-fg-danger: var(--color-rose-500);  --color-fg-danger-strong: var(--color-rose-300);  --color-fg-warning-subtle: var(--color-orange-500);  --color-fg-warning: var(--color-orange-300);  --color-fg-yellow: var(--color-yellow-400);  --color-fg-disabled: var(--color-gray-600);  --color-fg-purple: var(--color-purple-500);  --color-fg-cyan: var(--color-cyan-500);  --color-fg-indigo: var(--color-indigo-500);  --color-fg-pink: var(--color-pink-500);  --color-fg-lime: var(--color-lime-500);    /* background color variables */     --color-neutral-primary-soft: var(--color-gray-900);     --color-neutral-primary: var(--color-gray-950);     --color-neutral-primary-medium: var(--color-gray-800);     --color-neutral-primary-strong: var(--color-gray-700);     --color-neutral-secondary-soft: var(--color-gray-900);     --color-neutral-secondary: var(--color-gray-950);     --color-neutral-secondary-medium: var(--color-gray-800);     --color-neutral-secondary-strong: var(--color-gray-700);     --color-neutral-secondary-strongest: var(--color-gray-600);     --color-neutral-tertiary-soft: var(--color-gray-900);     --color-neutral-tertiary: var(--color-gray-800);     --color-neutral-tertiary-medium: var(--color-gray-700);     --color-neutral-quaternary: var(--color-gray-700);     --color-neutral-quaternary-medium: var(--color-gray-600);     --color-gray: var(--color-gray-600);     --color-brand-softer: var(--color-blue-950);     --color-brand-soft: var(--color-blue-900);     --color-brand: var(--color-blue-600);     --color-brand-medium: var(--color-blue-900);     --color-brand-strong: var(--color-blue-700);     --color-success-soft: var(--color-emerald-950);     --color-success: var(--color-emerald-600);     --color-success-medium: var(--color-emerald-900);     --color-success-strong: var(--color-emerald-700);     --color-danger-soft: var(--color-rose-950);     --color-danger: var(--color-rose-700);     --color-danger-medium: var(--color-rose-900);     --color-danger-strong: var(--color-rose-800);     --color-warning-soft: var(--color-orange-950);     --color-warning: var(--color-orange-600);     --color-warning-medium: var(--color-orange-900);     --color-warning-strong: var(--color-orange-700);     --color-dark-soft: var(--color-gray-700);     --color-dark: var(--color-gray-800);     --color-dark-strong: var(--color-gray-700);     --color-disabled: var(--color-gray-800);     --color-purple: var(--color-purple-500);     --color-sky: var(--color-sky-500);     --color-teal: var(--color-teal-500);     --color-pink: var(--color-pink-500);     --color-cyan: var(--color-cyan-500);     --color-fuchsia: var(--color-fuchsia-500);     --color-indigo: var(--color-indigo-500);     --color-orange: var(--color-orange-400);       /* border color variables */     --color-buffer: var(--color-gray-950);     --color-buffer-medium: var(--color-gray-900);     --color-buffer-strong: var(--color-gray-800);     --color-muted: var(--color-gray-900);     --color-light-subtle: var(--color-gray-900);     --color-light: var(--color-gray-800);     --color-light-medium: var(--color-gray-700);     --color-default-subtle: var(--color-gray-900);     --color-default: var(--color-gray-800);     --color-default-medium: var(--color-gray-700);     --color-default-strong: var(--color-gray-600);     --color-success-subtle: var(--color-emerald-900);     --color-danger-subtle: var(--color-rose-900);     --color-warning-subtle: var(--color-orange-900);     --color-brand-subtle: var(--color-blue-900);     --color-brand-light: var(--color-blue-600);     --color-dark-subtle: var(--color-gray-700);     --color-dark-backdrop: var(--color-gray-950);}
+    </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <nav class="bg-neutral-primary fixed w-full z-20 top-0 start-0 border-default">
+      <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
+          <span class="self-center text-xl text-heading font-semibold whitespace-nowrap">Cyber Crypto</span>
+        </a>
+        <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+          <button type="button"
+            class="text-white bg-blue-500 rounded-md hover:bg-brand-strong box-border border border-transparent focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-3 py-2 focus:outline-none">
+            Get started
+          </button>
+          <button data-collapse-toggle="navbar-sticky" type="button"
+            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-body rounded-base md:hidden hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none focus:ring-2 focus:ring-neutral-tertiary"
+            aria-controls="navbar-sticky" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+              fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14" />
+            </svg>
+          </button>
+        </div>
         <div
-          class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
-        >
-          <a
-            href="https://flowbite.com/"
-            class="flex items-center space-x-3 rtl:space-x-reverse"
-          >
-            <span
-              class="self-center text-xl text-heading font-semibold whitespace-nowrap"
-              >Cyber Crypto</span
-            >
-          </a>
-          <div
-            class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse"
-          >
-            <button
-              type="button"
-              class="text-white bg-blue-500 rounded-md hover:bg-brand-strong box-border border border-transparent focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-3 py-2 focus:outline-none"
-            >
-              Get started
-            </button>
-            <button
-              data-collapse-toggle="navbar-sticky"
-              type="button"
-              class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-body rounded-base md:hidden hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none focus:ring-2 focus:ring-neutral-tertiary"
-              aria-controls="navbar-sticky"
-              aria-expanded="false"
-            >
-              <span class="sr-only">Open main menu</span>
-              <svg
-                class="w-6 h-6"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-width="2"
-                  d="M5 7h14M5 12h14M5 17h14"
-                />
-              </svg>
-            </button>
-          </div>
-          <div
-            class="bg-white text-black rounded-3xl items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
-            id="navbar-sticky"
-          >
-            <ul
-              class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-default rounded-base bg-neutral-secondary-soft md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-neutral-primary"
-            >
-              <li>
-                <a
-                  href="#"
-                  class="block py-2 px-3 text-blue-500 bg-brand rounded-sm md:bg-transparent md:text-fg-brand md:p-0"
-                  aria-current="page"
-                  >Home</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent"
-                  >Pages</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent"
-                  >Porfolio</a
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
-
-    <!-- Carousel -->
-    <section class="carousel py-[200px]">
-      <div class="container mx-auto lg:flex lg:items-center">
-        <div>
-          <h1 class="text-7xl font-bold">
-            Trsuted & Secure <span class="text-gradient">Crypto</span> Market
-            Exchange
-          </h1>
-          <p class="text-3xl my-10">
-            Already have a website? Try our hosting to alive it with
-            industry-leading load times.
-          </p>
-          <button class="btn-trading">Start Trading</button>
-          <h2 class="text-5xl my-10">A+ Rating</h2>
-          <p class="text-2xl font-light text-gray-500">
-            Avg rating 4.8 makes us world most best apps.
-          </p>
-        </div>
-        <div>
-          <img src="./images/bank.png" alt="bank" />
+          class="bg-white text-black rounded-3xl items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+          id="navbar-sticky">
+          <ul
+            class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-default rounded-base bg-neutral-secondary-soft md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-neutral-primary">
+            <li>
+              <a href="#"
+                class="block py-2 px-3 text-blue-500 bg-brand rounded-sm md:bg-transparent md:text-fg-brand md:p-0"
+                aria-current="page">Home</a>
+            </li>
+            <li>
+              <a href="#"
+                class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">Pages</a>
+            </li>
+            <li>
+              <a href="#"
+                class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">Porfolio</a>
+            </li>
+          </ul>
         </div>
       </div>
-    </section>
+    </nav>
+  </header>
 
-    <!-- Flatform -->
-    <section class="flatform">
-      <div class="container mx-auto">
-        <div class="text-center">
-          <h1 class="text-6xl">
-            Trusted <span class="text-gradient">Cryptocurrency</span> Platform
-          </h1>
-          <p class="text-xl text-gray-500">
-            jano has a variety of features that make it the best place to start
-            trading
-          </p>
+  <!-- Carousel -->
+  <section class="carousel py-[200px]">
+    <div class="container mx-auto lg:flex lg:items-center">
+      <div>
+        <h1 class="text-7xl font-bold">
+          Trsuted & Secure <span class="text-gradient">Crypto</span> Market
+          Exchange
+        </h1>
+        <p class="text-3xl my-10">
+          Already have a website? Try our hosting to alive it with
+          industry-leading load times.
+        </p>
+        <button class="btn-trading">Start Trading</button>
+        <h2 class="text-5xl my-10">A+ Rating</h2>
+        <p class="text-2xl font-light text-gray-500">
+          Avg rating 4.8 makes us world most best apps.
+        </p>
+      </div>
+      <div>
+        <img src="./images/bank.png" alt="bank" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Flatform -->
+  <section class="flatform">
+    <div class="container mx-auto">
+      <div class="text-center">
+        <h1 class="text-6xl">
+          Trusted <span class="text-gradient">Cryptocurrency</span> Platform
+        </h1>
+        <p class="text-xl text-gray-500">
+          jano has a variety of features that make it the best place to start
+          trading
+        </p>
+      </div>
+      <div class="flatform__content mt-10">
+        <div class="mb-4">
+          <ul class="flex justify-center flex-wrap -mb-px text-sm font-medium text-center" id="default-tab"
+            data-tabs-toggle="#default-tab-content" role="tablist">
+            <li class="me-2" role="presentation">
+              <button class="inline-block p-4 border-b-2 rounded-t-base" id="profile-tab" data-tabs-target="#profile"
+                type="button" role="tab" aria-controls="profile" aria-selected="false">
+                Profile
+              </button>
+            </li>
+            <li role="presentation">
+              <button class="inline-block p-4 border-b-2 rounded-t-base hover:text-fg-brand hover:border-brand"
+                id="contacts-tab" data-tabs-target="#contacts" type="button" role="tab" aria-controls="contacts"
+                aria-selected="false">
+                Contacts
+              </button>
+            </li>
+          </ul>
         </div>
-        <div class="flatform__content mt-10">
-          <div class="mb-4">
-            <ul
-              class="flex justify-center flex-wrap -mb-px text-sm font-medium text-center"
-              id="default-tab"
-              data-tabs-toggle="#default-tab-content"
-              role="tablist"
-            >
-              <li class="me-2" role="presentation">
-                <button
-                  class="inline-block p-4 border-b-2 rounded-t-base"
-                  id="profile-tab"
-                  data-tabs-target="#profile"
-                  type="button"
-                  role="tab"
-                  aria-controls="profile"
-                  aria-selected="false"
-                >
-                  Profile
-                </button>
-              </li>
-              <li role="presentation">
-                <button
-                  class="inline-block p-4 border-b-2 rounded-t-base hover:text-fg-brand hover:border-brand"
-                  id="contacts-tab"
-                  data-tabs-target="#contacts"
-                  type="button"
-                  role="tab"
-                  aria-controls="contacts"
-                  aria-selected="false"
-                >
-                  Contacts
-                </button>
-              </li>
-            </ul>
-          </div>
-          <div id="default-tab-content">
-            <div
-              class="hidden p-4 rounded-base bg-neutral-secondary-soft"
-              id="profile"
-              role="tabpanel"
-              aria-labelledby="profile-tab"
-            >
-              <div class="list grid grid-cols-3 gap-5">
-                <div
-                  class="text-center bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs"
-                >
-                  <a href="#">
-                    <img
-                      class="rounded-base mx-auto"
-                      src="./images/trusted_1.png"
-                      alt="trusted_1"
-                    />
-                  </a>
-                  <a href="#">
-                    <h5
-                      class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading"
-                    >
-                      Best Exchange Rate
-                    </h5>
-                  </a>
-                  <p class="mb-6 text-body">
-                    Convert data noise intelligent for quis lorem.
-                  </p>
-                  <a
-                    href="#"
-                    class="inline-flex items-center text-body bg-neutral-secondary-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none"
-                  >
-                    <svg
-                      class="w-4 h-4 ms-1.5 rtl:rotate-180 -me-0.5"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M19 12H5m14 0-4 4m4-4-4-4"
-                      />
-                    </svg>
-                  </a>
-                </div>
-                <div
-                  class="text-center bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs"
-                >
-                  <a href="#">
-                    <img
-                      class="rounded-base mx-auto"
-                      src="./images/trusted_1.png"
-                      alt="trusted_1"
-                    />
-                  </a>
-                  <a href="#">
-                    <h5
-                      class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading"
-                    >
-                      Best Exchange Rate
-                    </h5>
-                  </a>
-                  <p class="mb-6 text-body">
-                    Convert data noise intelligent for quis lorem.
-                  </p>
-                  <a
-                    href="#"
-                    class="inline-flex items-center text-body bg-neutral-secondary-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none"
-                  >
-                    <svg
-                      class="w-4 h-4 ms-1.5 rtl:rotate-180 -me-0.5"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M19 12H5m14 0-4 4m4-4-4-4"
-                      />
-                    </svg>
-                  </a>
-                </div>
-                <div
-                  class="text-center bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs"
-                >
-                  <a href="#">
-                    <img
-                      class="rounded-base mx-auto"
-                      src="./images/trusted_1.png"
-                      alt="trusted_1"
-                    />
-                  </a>
-                  <a href="#">
-                    <h5
-                      class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading"
-                    >
-                      Best Exchange Rate
-                    </h5>
-                  </a>
-                  <p class="mb-6 text-body">
-                    Convert data noise intelligent for quis lorem.
-                  </p>
-                  <a
-                    href="#"
-                    class="inline-flex items-center text-body bg-neutral-secondary-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none"
-                  >
-                    <svg
-                      class="w-4 h-4 ms-1.5 rtl:rotate-180 -me-0.5"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M19 12H5m14 0-4 4m4-4-4-4"
-                      />
-                    </svg>
-                  </a>
-                </div>
-                <div
-                  class="text-center bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs"
-                >
-                  <a href="#">
-                    <img
-                      class="rounded-base mx-auto"
-                      src="./images/trusted_1.png"
-                      alt="trusted_1"
-                    />
-                  </a>
-                  <a href="#">
-                    <h5
-                      class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading"
-                    >
-                      Best Exchange Rate
-                    </h5>
-                  </a>
-                  <p class="mb-6 text-body">
-                    Convert data noise intelligent for quis lorem.
-                  </p>
-                  <a
-                    href="#"
-                    class="inline-flex items-center text-body bg-neutral-secondary-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none"
-                  >
-                    <svg
-                      class="w-4 h-4 ms-1.5 rtl:rotate-180 -me-0.5"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M19 12H5m14 0-4 4m4-4-4-4"
-                      />
-                    </svg>
-                  </a>
-                </div>
-                <div
-                  class="text-center bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs"
-                >
-                  <a href="#">
-                    <img
-                      class="rounded-base mx-auto"
-                      src="./images/trusted_1.png"
-                      alt="trusted_1"
-                    />
-                  </a>
-                  <a href="#">
-                    <h5
-                      class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading"
-                    >
-                      Best Exchange Rate
-                    </h5>
-                  </a>
-                  <p class="mb-6 text-body">
-                    Convert data noise intelligent for quis lorem.
-                  </p>
-                  <a
-                    href="#"
-                    class="inline-flex items-center text-body bg-neutral-secondary-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none"
-                  >
-                    <svg
-                      class="w-4 h-4 ms-1.5 rtl:rotate-180 -me-0.5"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M19 12H5m14 0-4 4m4-4-4-4"
-                      />
-                    </svg>
-                  </a>
-                </div>
-                <div
-                  class="text-center bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs"
-                >
-                  <a href="#">
-                    <img
-                      class="rounded-base mx-auto"
-                      src="./images/trusted_1.png"
-                      alt="trusted_1"
-                    />
-                  </a>
-                  <a href="#">
-                    <h5
-                      class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading"
-                    >
-                      Best Exchange Rate
-                    </h5>
-                  </a>
-                  <p class="mb-6 text-body">
-                    Convert data noise intelligent for quis lorem.
-                  </p>
-                  <a
-                    href="#"
-                    class="inline-flex items-center text-body bg-neutral-secondary-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none"
-                  >
-                    <svg
-                      class="w-4 h-4 ms-1.5 rtl:rotate-180 -me-0.5"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M19 12H5m14 0-4 4m4-4-4-4"
-                      />
-                    </svg>
-                  </a>
-                </div>
+        <div id="default-tab-content">
+          <div class="hidden p-4 rounded-base bg-neutral-secondary-soft" id="profile" role="tabpanel"
+            aria-labelledby="profile-tab">
+            <div class="list grid grid-cols-3 gap-5">
+              <div
+                class="text-center bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs">
+                <a href="#">
+                  <img class="rounded-base mx-auto" src="./images/trusted_1.png" alt="trusted_1" />
+                </a>
+                <a href="#">
+                  <h5 class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading">
+                    Best Exchange Rate
+                  </h5>
+                </a>
+                <p class="mb-6 text-body">
+                  Convert data noise intelligent for quis lorem.
+                </p>
+                <a href="#"
+                  class="inline-flex items-center text-body bg-neutral-secondary-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
+                  <svg class="w-4 h-4 ms-1.5 rtl:rotate-180 -me-0.5" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M19 12H5m14 0-4 4m4-4-4-4" />
+                  </svg>
+                </a>
+              </div>
+              <div
+                class="text-center bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs">
+                <a href="#">
+                  <img class="rounded-base mx-auto" src="./images/trusted_1.png" alt="trusted_1" />
+                </a>
+                <a href="#">
+                  <h5 class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading">
+                    Best Exchange Rate
+                  </h5>
+                </a>
+                <p class="mb-6 text-body">
+                  Convert data noise intelligent for quis lorem.
+                </p>
+                <a href="#"
+                  class="inline-flex items-center text-body bg-neutral-secondary-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
+                  <svg class="w-4 h-4 ms-1.5 rtl:rotate-180 -me-0.5" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M19 12H5m14 0-4 4m4-4-4-4" />
+                  </svg>
+                </a>
+              </div>
+              <div
+                class="text-center bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs">
+                <a href="#">
+                  <img class="rounded-base mx-auto" src="./images/trusted_1.png" alt="trusted_1" />
+                </a>
+                <a href="#">
+                  <h5 class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading">
+                    Best Exchange Rate
+                  </h5>
+                </a>
+                <p class="mb-6 text-body">
+                  Convert data noise intelligent for quis lorem.
+                </p>
+                <a href="#"
+                  class="inline-flex items-center text-body bg-neutral-secondary-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
+                  <svg class="w-4 h-4 ms-1.5 rtl:rotate-180 -me-0.5" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M19 12H5m14 0-4 4m4-4-4-4" />
+                  </svg>
+                </a>
+              </div>
+              <div
+                class="text-center bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs">
+                <a href="#">
+                  <img class="rounded-base mx-auto" src="./images/trusted_1.png" alt="trusted_1" />
+                </a>
+                <a href="#">
+                  <h5 class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading">
+                    Best Exchange Rate
+                  </h5>
+                </a>
+                <p class="mb-6 text-body">
+                  Convert data noise intelligent for quis lorem.
+                </p>
+                <a href="#"
+                  class="inline-flex items-center text-body bg-neutral-secondary-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
+                  <svg class="w-4 h-4 ms-1.5 rtl:rotate-180 -me-0.5" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M19 12H5m14 0-4 4m4-4-4-4" />
+                  </svg>
+                </a>
+              </div>
+              <div
+                class="text-center bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs">
+                <a href="#">
+                  <img class="rounded-base mx-auto" src="./images/trusted_1.png" alt="trusted_1" />
+                </a>
+                <a href="#">
+                  <h5 class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading">
+                    Best Exchange Rate
+                  </h5>
+                </a>
+                <p class="mb-6 text-body">
+                  Convert data noise intelligent for quis lorem.
+                </p>
+                <a href="#"
+                  class="inline-flex items-center text-body bg-neutral-secondary-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
+                  <svg class="w-4 h-4 ms-1.5 rtl:rotate-180 -me-0.5" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M19 12H5m14 0-4 4m4-4-4-4" />
+                  </svg>
+                </a>
+              </div>
+              <div
+                class="text-center bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs">
+                <a href="#">
+                  <img class="rounded-base mx-auto" src="./images/trusted_1.png" alt="trusted_1" />
+                </a>
+                <a href="#">
+                  <h5 class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading">
+                    Best Exchange Rate
+                  </h5>
+                </a>
+                <p class="mb-6 text-body">
+                  Convert data noise intelligent for quis lorem.
+                </p>
+                <a href="#"
+                  class="inline-flex items-center text-body bg-neutral-secondary-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
+                  <svg class="w-4 h-4 ms-1.5 rtl:rotate-180 -me-0.5" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M19 12H5m14 0-4 4m4-4-4-4" />
+                  </svg>
+                </a>
               </div>
             </div>
-            <div
-              class="hidden p-4 rounded-base bg-neutral-secondary-soft"
-              id="contacts"
-              role="tabpanel"
-              aria-labelledby="contacts-tab"
-            >
-              <div class="list grid grid-cols-3 gap-5">
-                <div
-                  class="text-center bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs"
-                >
-                  <a href="#">
-                    <img
-                      class="rounded-base mx-auto"
-                      src="./images/trusted_1.png"
-                      alt="trusted_1"
-                    />
-                  </a>
-                  <a href="#">
-                    <h5
-                      class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading"
-                    >
-                      Best Exchange Rate
-                    </h5>
-                  </a>
-                  <p class="mb-6 text-body">
-                    Convert data noise intelligent for quis lorem.
-                  </p>
-                  <a
-                    href="#"
-                    class="inline-flex items-center text-body bg-neutral-secondary-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none"
-                  >
-                    <svg
-                      class="w-4 h-4 ms-1.5 rtl:rotate-180 -me-0.5"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M19 12H5m14 0-4 4m4-4-4-4"
-                      />
-                    </svg>
-                  </a>
-                </div>
-                <div
-                  class="text-center bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs"
-                >
-                  <a href="#">
-                    <img
-                      class="rounded-base mx-auto"
-                      src="./images/trusted_1.png"
-                      alt="trusted_1"
-                    />
-                  </a>
-                  <a href="#">
-                    <h5
-                      class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading"
-                    >
-                      Best Exchange Rate
-                    </h5>
-                  </a>
-                  <p class="mb-6 text-body">
-                    Convert data noise intelligent for quis lorem.
-                  </p>
-                  <a
-                    href="#"
-                    class="inline-flex items-center text-body bg-neutral-secondary-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none"
-                  >
-                    <svg
-                      class="w-4 h-4 ms-1.5 rtl:rotate-180 -me-0.5"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M19 12H5m14 0-4 4m4-4-4-4"
-                      />
-                    </svg>
-                  </a>
-                </div>
-                <div
-                  class="text-center bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs"
-                >
-                  <a href="#">
-                    <img
-                      class="rounded-base mx-auto"
-                      src="./images/trusted_1.png"
-                      alt="trusted_1"
-                    />
-                  </a>
-                  <a href="#">
-                    <h5
-                      class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading"
-                    >
-                      Best Exchange Rate
-                    </h5>
-                  </a>
-                  <p class="mb-6 text-body">
-                    Convert data noise intelligent for quis lorem.
-                  </p>
-                  <a
-                    href="#"
-                    class="inline-flex items-center text-body bg-neutral-secondary-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none"
-                  >
-                    <svg
-                      class="w-4 h-4 ms-1.5 rtl:rotate-180 -me-0.5"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M19 12H5m14 0-4 4m4-4-4-4"
-                      />
-                    </svg>
-                  </a>
-                </div>
+          </div>
+          <div class="hidden p-4 rounded-base bg-neutral-secondary-soft" id="contacts" role="tabpanel"
+            aria-labelledby="contacts-tab">
+            <div class="list grid grid-cols-3 gap-5">
+              <div
+                class="text-center bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs">
+                <a href="#">
+                  <img class="rounded-base mx-auto" src="./images/trusted_1.png" alt="trusted_1" />
+                </a>
+                <a href="#">
+                  <h5 class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading">
+                    Best Exchange Rate
+                  </h5>
+                </a>
+                <p class="mb-6 text-body">
+                  Convert data noise intelligent for quis lorem.
+                </p>
+                <a href="#"
+                  class="inline-flex items-center text-body bg-neutral-secondary-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
+                  <svg class="w-4 h-4 ms-1.5 rtl:rotate-180 -me-0.5" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M19 12H5m14 0-4 4m4-4-4-4" />
+                  </svg>
+                </a>
+              </div>
+              <div
+                class="text-center bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs">
+                <a href="#">
+                  <img class="rounded-base mx-auto" src="./images/trusted_1.png" alt="trusted_1" />
+                </a>
+                <a href="#">
+                  <h5 class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading">
+                    Best Exchange Rate
+                  </h5>
+                </a>
+                <p class="mb-6 text-body">
+                  Convert data noise intelligent for quis lorem.
+                </p>
+                <a href="#"
+                  class="inline-flex items-center text-body bg-neutral-secondary-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
+                  <svg class="w-4 h-4 ms-1.5 rtl:rotate-180 -me-0.5" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M19 12H5m14 0-4 4m4-4-4-4" />
+                  </svg>
+                </a>
+              </div>
+              <div
+                class="text-center bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs">
+                <a href="#">
+                  <img class="rounded-base mx-auto" src="./images/trusted_1.png" alt="trusted_1" />
+                </a>
+                <a href="#">
+                  <h5 class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading">
+                    Best Exchange Rate
+                  </h5>
+                </a>
+                <p class="mb-6 text-body">
+                  Convert data noise intelligent for quis lorem.
+                </p>
+                <a href="#"
+                  class="inline-flex items-center text-body bg-neutral-secondary-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
+                  <svg class="w-4 h-4 ms-1.5 rtl:rotate-180 -me-0.5" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M19 12H5m14 0-4 4m4-4-4-4" />
+                  </svg>
+                </a>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Feedback -->
+  <!-- Feedback -->
 
-    <!-- Footer -->
+  <!-- Footer -->
+  <footer>
+    FOOTER
+  </footer>
 
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+</body>
 
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
-  </body>
 </html>
